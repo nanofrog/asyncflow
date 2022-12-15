@@ -1,6 +1,8 @@
 #include "core/node_attacher.h"
 #include "core/manager.h"
 #include <util/log.h>
+
+#include "core/node_func.h"
 using namespace asyncflow::core;
 
 NodeTimer::NodeTimer(Node* node, int milliseconds)
@@ -107,3 +109,13 @@ void NodeWaitAll::Stop()
 {
 	
 }
+
+////////////////////////////////////////////////////////////////////////////
+
+NodeRepeater::~NodeRepeater()
+{
+	auto* repater_func = static_cast<RepeatNodeFunc*>(node_->GetData()->GetNodeFunc());
+	repater_func->Clear(node_->GetChart());
+}
+
+

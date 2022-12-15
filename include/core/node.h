@@ -3,6 +3,7 @@
 #include <vector>
 #include <list>
 #include <util/log.h>
+#include <functional>
 #include "core/async_event.h"
 #include "core/custom_struct.h"
 
@@ -14,6 +15,13 @@ namespace asyncflow
 		class NodeData;
 		class Agent;
 		class NodeList;
+
+		struct NodeCallbacks
+		{
+			bool IsEmpty() const { return OnRunFlowEnd == nullptr; }
+			NodeCallbacks(): OnRunFlowEnd(nullptr) {}
+			std::function<void(Node*)> OnRunFlowEnd;
+		};
 
 		class Node
 		{
@@ -54,6 +62,10 @@ namespace asyncflow
 			void		SetWaitingList(NodeList* waiting_list) { waiting_list_ = waiting_list; }
 			NodeList*   GetWaitingList() { return waiting_list_; }
 			void        SendEventStatus(const AsyncEventBase* event);
+						
+			void		SetRunFlowEnd(std::function<void(Node*)> f);
+			void		OnRunFlowEnd();
+
 
 		private:
 			int				id_;
@@ -66,7 +78,8 @@ namespace asyncflow
 			int				pre_node_id_;
 			Status			status_;
 			INodeAttacher*	attacher_;
-			NodeList* waiting_list_;		
+			NodeList* waiting_list_;
+			NodeCallbacks*	callbacks_;
 		};
 	}
 }

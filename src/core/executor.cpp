@@ -74,6 +74,8 @@ void DfsExecutor::RunFlow(Node* start_node)
 	}
 	history_nodes_.clear();
 
+	start_node->OnRunFlowEnd();
+
 	//check running nodes in chart
 	auto* chart = start_node->GetChart();
 	if (!chart->CheckRunning())

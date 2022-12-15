@@ -30,6 +30,18 @@ namespace asyncflow
 			ControlFunc func;
 		};
 
+		class RepeatNodeFunc : public NodeFunc
+		{
+		public:
+			bool call(core::Agent* agent) override;
+			static NodeFunc* Create(const std::vector<int>&);
+			static void OnNodeRunFlowEnd(int id, Node* node);
+			void Clear(Chart* chart);
+		private:
+			std::vector<int> waiting_nodes_;
+			bool Finished(Chart* chart);
+		};
+
 #ifdef FLOWCHART_DEBUG
 		class BreakpointFunc : public NodeFunc
 		{

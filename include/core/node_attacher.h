@@ -17,7 +17,8 @@ namespace asyncflow
 			{
 				TIMER = 1,
 				SUBCHART = 2,
-				WAITALL = 3
+				WAITALL = 3,
+				REPEATER = 4
 			};
 			INodeAttacher(Node* node, Type type)
 				: node_(node)
@@ -71,6 +72,14 @@ namespace asyncflow
 			void Stop() override;
 		private:
 			std::map<int, bool> node_ids_;
+		};
+
+		class NodeRepeater : public INodeAttacher
+		{
+		public:
+			NodeRepeater(Node* node): INodeAttacher(node, REPEATER){}
+			~NodeRepeater() override;
+			void Stop() override {}
 		};
 	}
 }

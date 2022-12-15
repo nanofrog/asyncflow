@@ -18,6 +18,7 @@ Node::Node(Chart* chart, NodeData* data)
 	, skip_(false)
 	, pre_node_id_(-1)
 	, is_wait_all(false)
+    , callbacks_(nullptr)
 {
 	id_ = data_->GetId();
 }
@@ -29,6 +30,8 @@ Node::~Node()
 	{
 		SetAttacher(nullptr);
 	}
+	if (callbacks_ == nullptr)
+		delete callbacks_;
 }
 
 Agent*	Node::GetAgent() const { return chart_->GetAgent(); }
@@ -97,3 +100,37 @@ void Node::SendEventStatus(const AsyncEventBase* event)
 	}
 }
 #endif
+
+void Node::SetRunFlowEnd(std::function<void(Node*)> f)
+{
+	if(f == nullptr)
+	{
+	    if(callbacks_ != nullptr)
+	    {
+			callbacks_->OnRunFlowEnd = nullptr;
+			if (callbacks_->IsEmpty())
+			{
+				delete callbacks_;
+				callbacks_ = nullptr;
+			}
+	    }		
+	}
+	else
+	{
+		if (callbacks_ == nullptr)
+		{
+			callbacks_ = new NodeCallbacks;
+		}
+		callbacks_->OnRunFlowEnd = f;	    
+	}
+    
+}
+
+void Node::OnRunFlowEnd()
+{
+	if (callbacks_ == nullptr)
+		return;
+	if (callbacks_->OnRunFlowEnd == nullptr)
+		return;
+	callbacks_->OnRunFlowEnd(this);
+}
