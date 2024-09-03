@@ -224,6 +224,9 @@ if(${BUILD_LUAJIT})
     set_target_properties(asyncflow-lua PROPERTIES CXX_EXTENSIONS OFF)
     target_link_libraries(asyncflow-lua asyncflow luajit)
 
+    add_executable(lua_cli "src/lua_cli.cpp")
+    target_link_libraries(lua_cli asyncflow-lua)
+
     if(${BUILD_TEST})
         aux_source_directory("src/test/lua" LUA_TEST_SRCS)    
         add_executable(lua_test ${LUA_TEST_SRCS} ${LUA_SRCS} "thirdparty/catch.cpp")
