@@ -1,0 +1,8 @@
+--- 
+name: Player
+abbr: 玩
+methods: 
+- 
+  name: NewMethod
+  type: Void
+...

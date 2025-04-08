@@ -1,0 +1,20 @@
+--- 
+name: ObjId
+abbr: Id
+methods: 
+- 
+  name: AddBuf
+  type: Void
+  template: (BigWorld.entities.get($caller) or EmptyObject).AddBuf($params)
+  parameters: 
+  - {name: bufferId, type: Number}
+- 
+  name: NewMethod111
+  type: Void
+- 
+  name: NewMethod2222
+  type: Void
+  parameters: 
+  - {name: NewArgaaa, type: Any}
+  - {name: NewArg, type: Any}
+...
