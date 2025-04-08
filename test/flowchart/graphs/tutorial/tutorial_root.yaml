@@ -1,0 +1,120 @@
+--- 
+kind: folder
+path: tutorial
+type: Global
+--- 
+path: tutorial.subgraph
+uid: 2630eeef-afc2-4964-84df-fa2b409a6397
+type: Character
+is_subgraph: true
+return_type: Number
+variables: 
+- 
+  name: a
+  type: Number
+nodes: 
+- 
+  uid: e44f3d19-6873-4a26-8b0f-509d5c2cceb7
+- 
+  uid: 755f12e6-8908-4854-98fe-4e1295f52d56
+  text: "$a = 1"
+  code: 
+    type: FUNC
+- 
+  uid: 1cd1b9c5-91dc-4c80-bc63-0832990eeb18
+  text: "$a < 10"
+  code: 
+    type: FUNC
+- 
+  uid: b3b6a2e9-53be-45ae-972c-6edd3e462880
+  text: "Say($a)"
+  code: 
+    type: FUNC
+- 
+  uid: 2b9be89e-28b2-4652-9094-f424ec2156ba
+  text: "$a = $a + 1"
+  code: 
+    type: FUNC
+- 
+  uid: a2cae399-69a5-412b-903a-b2e6191018e7
+  text: "return($a)"
+  code: 
+    type: FUNC
+connectors: 
+- 
+  start: e44f3d19-6873-4a26-8b0f-509d5c2cceb7
+  end: 755f12e6-8908-4854-98fe-4e1295f52d56
+  type: 2
+- 
+  start: 755f12e6-8908-4854-98fe-4e1295f52d56
+  end: 1cd1b9c5-91dc-4c80-bc63-0832990eeb18
+  type: 2
+- 
+  start: 1cd1b9c5-91dc-4c80-bc63-0832990eeb18
+  end: b3b6a2e9-53be-45ae-972c-6edd3e462880
+  type: 1
+- 
+  start: 1cd1b9c5-91dc-4c80-bc63-0832990eeb18
+  end: a2cae399-69a5-412b-903a-b2e6191018e7
+  type: 0
+- 
+  start: b3b6a2e9-53be-45ae-972c-6edd3e462880
+  end: 2b9be89e-28b2-4652-9094-f424ec2156ba
+  type: 2
+- 
+  start: 2b9be89e-28b2-4652-9094-f424ec2156ba
+  end: 1cd1b9c5-91dc-4c80-bc63-0832990eeb18
+  type: 2
+--- 
+path: tutorial.subgraph_tutorial
+uid: d969bebb-5df7-4054-ae08-7ced59423cfd
+type: Character
+variables: 
+- 
+  name: i
+  type: Number
+- 
+  name: a
+  type: Number
+nodes: 
+- 
+  uid: 0215cab7-f367-4b2e-b320-3e74b7020260
+- 
+  uid: 908077e8-6325-4702-9e05-d1ccc4ebda28
+  text: "Say(\"begin subgraph\")"
+  code: 
+    type: FUNC
+- 
+  uid: c3c760a8-3b11-4677-8aba-cbf4f8cd3ea8
+  text: "$i = subgraph()"
+  code: 
+    type: FUNC
+    return_var_name: i
+- 
+  uid: 5ee9fc93-6365-4049-b208-e27e37d53970
+  text: "Say(\"subgraph end \" + str($i))"
+  code: 
+    type: FUNC
+- 
+  uid: 41923821-0025-4bbe-916d-2adb7bf48656
+  text: "$a = 1"
+  code: 
+    type: FUNC
+connectors: 
+- 
+  start: 0215cab7-f367-4b2e-b320-3e74b7020260
+  end: 908077e8-6325-4702-9e05-d1ccc4ebda28
+  type: 2
+- 
+  start: 908077e8-6325-4702-9e05-d1ccc4ebda28
+  end: c3c760a8-3b11-4677-8aba-cbf4f8cd3ea8
+  type: 2
+- 
+  start: c3c760a8-3b11-4677-8aba-cbf4f8cd3ea8
+  end: 5ee9fc93-6365-4049-b208-e27e37d53970
+  type: 2
+- 
+  start: 5ee9fc93-6365-4049-b208-e27e37d53970
+  end: 41923821-0025-4bbe-916d-2adb7bf48656
+  type: 2
+...

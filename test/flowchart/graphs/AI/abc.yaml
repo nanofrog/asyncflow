@@ -1,0 +1,190 @@
+--- 
+path: AI.abc.demo
+uid: 2044c0b0-cd04-4be8-b399-4022aadc56e1
+type: Character
+description: hello
+variables: 
+- 
+  name: A
+  type: Number
+- 
+  name: a
+  type: Number
+nodes: 
+- 
+  uid: 30c6d85c-045b-4c0f-8b78-e337ea9f1f8e
+- 
+  uid: a72a1045-9a82-4f24-9fb5-5d89104eab29
+  text: "Say(\"1\")"
+  code: 
+    type: FUNC
+- 
+  uid: 5f4773dc-4d18-4522-a0ce-51093f6c0d01
+  text: "wait(2.0)"
+  code: 
+    type: FUNC
+- 
+  uid: febc4217-852d-45a8-a908-56e5a47bb952
+  text: "Say(\"5\")"
+  code: 
+    type: FUNC
+- 
+  uid: 95bb63a4-d7eb-49a9-832a-322942292427
+  text: "$a = 1"
+  code: 
+    type: FUNC
+- 
+  uid: 74db2418-e30b-4149-b691-b35a117a71a3
+  text: "Say(\"2\")"
+  code: 
+    type: FUNC
+- 
+  uid: b2a3916f-de47-4e5d-9766-07fb0776a6bf
+  text: "Say(\"3\")"
+  code: 
+    type: FUNC
+- 
+  uid: d4172cda-d0b0-4ef4-98ff-20eae60152c8
+  text: "wait(1.0)"
+  code: 
+    type: FUNC
+- 
+  uid: 7999f511-d813-44c1-9f1b-f1e1c752b01d
+  text: "Say(\"4\")"
+  code: 
+    type: FUNC
+connectors: 
+- 
+  start: 30c6d85c-045b-4c0f-8b78-e337ea9f1f8e
+  end: a72a1045-9a82-4f24-9fb5-5d89104eab29
+  type: 2
+- 
+  start: a72a1045-9a82-4f24-9fb5-5d89104eab29
+  end: 5f4773dc-4d18-4522-a0ce-51093f6c0d01
+  type: 2
+- 
+  start: a72a1045-9a82-4f24-9fb5-5d89104eab29
+  end: 74db2418-e30b-4149-b691-b35a117a71a3
+  type: 2
+- 
+  start: a72a1045-9a82-4f24-9fb5-5d89104eab29
+  end: d4172cda-d0b0-4ef4-98ff-20eae60152c8
+  type: 2
+- 
+  start: 5f4773dc-4d18-4522-a0ce-51093f6c0d01
+  end: febc4217-852d-45a8-a908-56e5a47bb952
+  type: 2
+- 
+  start: febc4217-852d-45a8-a908-56e5a47bb952
+  end: 95bb63a4-d7eb-49a9-832a-322942292427
+  type: 2
+- 
+  start: 74db2418-e30b-4149-b691-b35a117a71a3
+  end: b2a3916f-de47-4e5d-9766-07fb0776a6bf
+  type: 2
+- 
+  start: d4172cda-d0b0-4ef4-98ff-20eae60152c8
+  end: 7999f511-d813-44c1-9f1b-f1e1c752b01d
+  type: 2
+--- 
+path: AI.abc.test_03_1
+uid: 76c21fc3-4c81-42f2-ac25-6f295482769d
+type: Character
+variables: 
+- 
+  name: str
+  type: String
+nodes: 
+- 
+  uid: db33ec94-82c4-4de9-9abb-b73db892104c
+- 
+  uid: b5d9a1fa-89fb-471e-8aa1-6acc1913e9a3
+  text: "OnHit"
+  code: 
+    type: ERROR
+- 
+  uid: 4e952432-4662-485d-8149-d455b2894734
+  text: "Say(Hit.attacker.name)"
+  code: 
+    type: ERROR
+- 
+  uid: 03bfd084-d71a-48a7-9daa-07fea6369109
+  text: "OnCustomEvent"
+  code: 
+    type: ERROR
+- 
+  uid: 9992e318-fc9f-4ddf-89c1-e866cb987f95
+  text: "CustomEvent.name == \"stage_1\""
+  code: 
+    type: ERROR
+- 
+  uid: 486eb95e-21d2-4896-9838-0a01259b78cf
+  text: "Say(\"stage_1 begin\")"
+  code: 
+    type: FUNC
+- 
+  uid: fe202b25-0007-4701-a4c8-bf651ee519d4
+  text: "CustomEvent.name == \"stage_2\""
+  code: 
+    type: ERROR
+- 
+  uid: de7f2ff3-0949-4e0a-87cd-d612589a4597
+  text: "Say(\"stage_2 begin\")"
+  code: 
+    type: FUNC
+- 
+  uid: 4f04514b-fbb9-48ad-838e-fee4848f298a
+  text: "CustomEvent.name == \"stage_3\""
+  code: 
+    type: ERROR
+- 
+  uid: a971e4a3-bcbe-4670-a0ca-3dd049a4b6af
+  text: "Say(\"stage_3 begin\")"
+  code: 
+    type: FUNC
+connectors: 
+- 
+  start: db33ec94-82c4-4de9-9abb-b73db892104c
+  end: b5d9a1fa-89fb-471e-8aa1-6acc1913e9a3
+  type: 2
+- 
+  start: b5d9a1fa-89fb-471e-8aa1-6acc1913e9a3
+  end: 4e952432-4662-485d-8149-d455b2894734
+  type: 2
+- 
+  start: b5d9a1fa-89fb-471e-8aa1-6acc1913e9a3
+  end: b5d9a1fa-89fb-471e-8aa1-6acc1913e9a3
+  type: 2
+- 
+  start: 4e952432-4662-485d-8149-d455b2894734
+  end: 03bfd084-d71a-48a7-9daa-07fea6369109
+  type: 3
+- 
+  start: 03bfd084-d71a-48a7-9daa-07fea6369109
+  end: 9992e318-fc9f-4ddf-89c1-e866cb987f95
+  type: 2
+- 
+  start: 03bfd084-d71a-48a7-9daa-07fea6369109
+  end: fe202b25-0007-4701-a4c8-bf651ee519d4
+  type: 2
+- 
+  start: 03bfd084-d71a-48a7-9daa-07fea6369109
+  end: 03bfd084-d71a-48a7-9daa-07fea6369109
+  type: 2
+- 
+  start: 03bfd084-d71a-48a7-9daa-07fea6369109
+  end: 4f04514b-fbb9-48ad-838e-fee4848f298a
+  type: 2
+- 
+  start: 9992e318-fc9f-4ddf-89c1-e866cb987f95
+  end: 486eb95e-21d2-4896-9838-0a01259b78cf
+  type: 1
+- 
+  start: fe202b25-0007-4701-a4c8-bf651ee519d4
+  end: de7f2ff3-0949-4e0a-87cd-d612589a4597
+  type: 1
+- 
+  start: 4f04514b-fbb9-48ad-838e-fee4848f298a
+  end: a971e4a3-bcbe-4670-a0ca-3dd049a4b6af
+  type: 1
+...
